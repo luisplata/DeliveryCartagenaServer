@@ -19,15 +19,18 @@ class ProductoController extends Controller
     public function index()
     {
 		$arrayDatabase = Producto_Categoria::getAll();
-		dd($arrayDatabase);
+		//dd($arrayDatabase);
 		//para hacer ehere
+		/*
 		$data = array_where($data, function ($key, $value) {
 			return is_string($value);
 		});
+		
 		foreach($arrayDatabase as $tupla){
 			
 		}
-        //return view("productos",["productos"=>$productos_indexados]);
+		*/
+        return view("productos",["productos"=>$arrayDatabase]);
     }
 
     /**
