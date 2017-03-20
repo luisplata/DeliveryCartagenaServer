@@ -11,7 +11,7 @@
 		{{Form::label('precio', 'Precio')}}
 		{{Form::number('precio')}}
 		<br/>
-		<select name="categorias_id">
+		<select name="categorias_id[]" multiple>
 			@foreach ($categorias as $categoria)
 				<option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
 			@endforeach

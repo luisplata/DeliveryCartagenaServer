@@ -3,9 +3,11 @@
 namespace DeliveryCartagena\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use DeliveryCartagena\Producto;
 use DeliveryCartagena\Categoria;
+use DeliveryCartagena\Producto_Categoria;
 
 class ProductoController extends Controller
 {
@@ -16,7 +18,16 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view("productos",["productos"=>Producto::all()]);
+		$arrayDatabase = Producto_Categoria::getAll();
+		dd($arrayDatabase);
+		//para hacer ehere
+		$data = array_where($data, function ($key, $value) {
+			return is_string($value);
+		});
+		foreach($arrayDatabase as $tupla){
+			
+		}
+        //return view("productos",["productos"=>$productos_indexados]);
     }
 
     /**
@@ -38,16 +49,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
 		$producto = new Producto();
 		$producto->nombre = $request->input("nombre");
 		$producto->descripcion = $request->input("descripcion");
 		$producto->precio = $request->input("precio");
-		if($producto->save()){
+		
+		//$request->input("categorias_id")
+		
+		if(Producto_Categoria::Guardar($producto,$request->input("categorias_id"))){
 			return redirect('/producto');
 		}else{
 			return "No guardo";
-		}
+		}	
     }
 
     /**
