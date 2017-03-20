@@ -57,7 +57,7 @@ class ProductoController extends Controller
 		$producto->descripcion = $request->input("descripcion");
 		$producto->precio = $request->input("precio");
 		
-		//$request->input("categorias_id")
+		//dd($request->input("categorias_id"));
 		
 		if(Producto_Categoria::Guardar($producto,$request->input("categorias_id"))){
 			return redirect('/producto');
