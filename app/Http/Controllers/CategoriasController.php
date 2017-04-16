@@ -3,6 +3,7 @@
 namespace DeliveryCartagena\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DeliveryCartagena\Categoria;
 
 class CategoriasController extends Controller
 {
@@ -14,6 +15,7 @@ class CategoriasController extends Controller
     public function index()
     {
         //
+		return Categoria::all();
     }
 
     /**

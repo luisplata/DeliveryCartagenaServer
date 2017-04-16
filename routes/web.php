@@ -26,10 +26,12 @@ Route::post('/producto/nuevo/crear', 'ProductoController@store');
 Route::get('/producto/nuevo', "ProductoController@create");
 //Api
 Route::resource("/productos","ProductosController");
+Route::resource("/categorias","CategoriasController");
+//Route::resource("/categorias","CategoriasController");
 
 //Categorias
 Route::get('/categoria', 'CategoriaController@index');
 Route::post('/categoria/nuevo/crear', 'CategoriaController@store');
 Route::get('/categoria/nuevo', "CategoriaController@create");
 //Api
-Route::resource("/categorias","CategoriasController");
+

@@ -16,7 +16,7 @@ class User extends Authenticatable
 		$user = DB::table('users')->where([
 		['email', $user]
 		])->first();
-		
+		//dd(Crypt::decrypt($user->password));
 		if(Crypt::decrypt($user->password) == $pass){
 			//existe
 			//colgamos sus datos en la session

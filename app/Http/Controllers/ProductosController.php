@@ -3,7 +3,7 @@
 namespace DeliveryCartagena\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DeliveryCartagena\Producto;
+use DeliveryCartagena\Producto_Categoria;
 
 class ProductosController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        return Producto::all();
+        return Producto_Categoria::GetAll();
     }
 
     /**

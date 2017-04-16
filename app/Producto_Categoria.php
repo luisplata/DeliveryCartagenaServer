@@ -37,7 +37,7 @@ class Producto_Categoria extends Model
         
 	}
 	
-	public static function getAll(){
+	public static function GetAll(){
 		$productos = DB::table('productos_categorias')
             ->join('productos', 'productos.id', '=', 'productos_categorias.productos_id')
 			->join('categorias', 'categorias.id', '=', 'productos_categorias.categorias_id')
